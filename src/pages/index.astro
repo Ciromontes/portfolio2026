@@ -1,0 +1,90 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Badge from "../components/Badge.astro"
+import SectionContainer from "../components/SectionContainer.astro"
+import LinkedInIcon from "../components/icons/LinkedIn.astro"
+import SocialPill from "../components/SocialPill.astro"
+import GitHubIcon from "../components/icons/GitHub.astro"
+import MailIcon from "../components/icons/Mail.astro"
+import Experience from "../components/Experience.astro"
+import Briefcase from "../components/icons/Briefcase.astro"
+import CodeIcon from "../components/icons/Code.astro"
+import Projects from "../components/Projects.astro"
+import WhatsAppIcon from "../components/icons/WhatsApp.astro"
+---
+
+<Layout title="Portfolio of Ciro Montes - Programmer and web developer"
+description="Hire Ciro to create web or mobile applications. Web developer">
+<main class="px-4">
+		<SectionContainer id="sobre-mi" class="py-44 pb-32">
+			<img
+			class="rounded-full size-12 mb-4"
+			src="/fotoPersonal.jpg"
+			alt="Ciro photo"
+		  />
+			<h1	class="text-white text-5x font-bold flex flex-row gap-x-4 pb-20 lg:pb-10"
+		  >
+			Hi, I'm Ciro <a
+			href="https://www.linkedin.com/in/ciro-alfonso-montes-rincon-09809220a/"
+			target="_blank"
+			rel="noopener"
+		    class="flex justify-center items-center">
+				<Badge>Available to work</Badge>
+			</a>
+		</h1>
+		<h2
+        class="text-2xl lg:text-2xl text-balance max-w-[700px] text-white dark:text-black"
+      >
+	  
+	 
+	 
+	  <span>Full stack web developer.</span><span class="text-red-200/90"> from Bogota, Colombia.</span> <span class="opacity-75">Focused on creating and maintaining applications</span></h2>
+
+
+
+	 <nav class="flex gap-4 mt-8 flex-wrap">
+			<SocialPill href="https://www.linkedin.com/in/ciro-alfonso-montes-rincon-09809220a/">
+				 
+				<LinkedInIcon class="size-6"/>
+				LinkedIn
+			</SocialPill >
+			<SocialPill href="https://github.com/Ciromontes/">				 
+				<GitHubIcon class="size-6"/>
+				GitHub
+			</SocialPill>
+			<SocialPill href="mailto:ciromontes25@hotmail.com">				 
+				<MailIcon class="size-6"/>
+				ciromontes25@hotmail.com
+			</SocialPill>
+			<SocialPill href="https://wa.me/+573102374172">
+				<WhatsAppIcon class="size-6" />
+			  </SocialPill>
+			  
+		</nav>
+
+		</SectionContainer>
+
+		<SectionContainer id="experiencia">
+			<h2
+			  class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-white/80 dark:text-black/80"
+			>
+			  <Briefcase class="size-7" />
+			  Certifications
+			</h2>
+			<Experience />
+		  </SectionContainer>
+	  
+		  <SectionContainer id="proyectos">
+			<h2
+			  class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-white/80 dark:text-black/80"
+			>
+			  <CodeIcon class="size-7" />
+			  Projects
+			</h2>
+			<Projects />
+		  </SectionContainer>
+		</main>
+	  </Layout>
+	
+		</main>
+</style>

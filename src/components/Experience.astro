@@ -1,0 +1,29 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const Certificaciones = [
+  {
+    date: "November 2022 - October 2023",
+    title: "ONE Oracle Next Education",
+    description:
+      "ONE Oracle Next Education, Alumni Back-End (December 2022 - August 2023)",
+    link: "https://app.aluracursos.com/user/ciromontes25/fullCertificate/a377976d193d14bc6e10f55c85c68b75",
+  },
+  {
+    date: "September 2022",
+    title: "Google, by Coursera, Google IT Automation with Python Professional Certificate (in progress)",
+    description:
+      "",
+      link: "https://www.coursera.org/account/accomplishments/certificate/3S5EH2BH8T4S",
+  },
+]
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {
+    Certificaciones.map((experiencie) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experiencie} />
+      </li>
+    ))
+  }
+</ol>

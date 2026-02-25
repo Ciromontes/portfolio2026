@@ -1,0 +1,175 @@
+---
+import NextJS from "./icons/NextJS.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import Java from "./icons/Java.astro"
+import Angular from "./icons/Angular.astro"
+import { Link, Github, ExternalLink } from "lucide-react"
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  JAVA: {
+    name: "Java",
+    class: "bg-black text-white",
+    icon: Java,
+  },
+  ANGULAR: {
+    name: "Angular",
+    class: "bg-black text-white",
+    icon: Angular,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-[#23272f] text-[#149eca]",
+    icon: NextJS, // Reusing NextJS icon or we can add a React one later
+  },
+  TYPESCRIPT: {
+    name: "TypeScript",
+    class: "bg-[#3178c6] text-white",
+    icon: NextJS, // Reusing NextJS icon or we can add a TS one later
+  },
+  PYTHON: {
+    name: "Python",
+    class: "bg-[#3776ab] text-white",
+    icon: NextJS, // Reusing NextJS icon or we can add a Python one later
+  },
+  FASTAPI: {
+    name: "FastAPI",
+    class: "bg-[#009688] text-white",
+    icon: NextJS, // Reusing NextJS icon or we can add a FastAPI one later
+  }
+}
+
+const PROJECTS = [
+  {
+    title: "DermaAPI (AI Skincare Analyzer)",
+    description:
+      "Full-Stack web application powered by artificial intelligence that performs descriptive visual analysis of the skin from photographs, generating personalized skincare routines and product recommendations. It bridges the gap between users seeking skincare guidance and the complexity of choosing the right products.",
+    link: "https://dermatologia-nu.vercel.app",
+    github: "",
+    image: "/ProyectoDermaAPI.webp",
+    tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.PYTHON, TAGS.FASTAPI],
+  },
+  {
+    title: "NeuroReflex Game",
+    description:
+      "English vocabulary learning SPA for Spanish speakers. Implements two custom game engines from scratch: an arcade mode and a fill-in-the-blank engine with spaced repetition, progressive hint system, multi-factor scoring, and native voice synthesis (Web Speech API). Backend-less architecture: the URL acts as the configuration store.",
+    link: "https://neuro-reflex-game.vercel.app/",
+    github: "https://github.com/Ciromontes/neuro-reflex-game",
+    image: "/ProyectoNeuroReflex.webp",
+    tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND],
+  },
+  {
+    title: "Memory Palace (AppLearning)",
+    description:
+      "Educational and interactive web application designed to accelerate and facilitate the learning of irregular English verbs through the mnemonic technique of spatial and visual association. It transforms the traditional and tedious process of memorizing verb lists into an immersive and gamified experience.",
+    link: "https://palacio-de-la-memoria-irregular-ver.vercel.app/",
+    github: "",
+    image: "/ProyectoPalacioMemoria.webp",
+    tags: [TAGS.REACT, TAGS.TAILWIND],
+  },
+  {
+    title: "AI Media Pipeline (Assets Generator)",
+    description:
+      "Automated backend and command-line (CLI) tool built in Python, designed to massively generate, process, and optimize images and videos using artificial intelligence (Google Gemini and Vertex AI). It automates the entire workflow from prompt ingestion to multimedia file compression.",
+    link: "",
+    github: "https://github.com/Ciromontes/API-GEMINI",
+    video: "/ProyectoAIPipeline.mp4",
+    tags: [TAGS.PYTHON],
+  },
+  {
+    title: "E-commerce-Spring-Angular",
+    description:
+      "This is a comprehensive e-commerce project developed with Spring Boot, Angular and MySQL. Includes creating user and administrator accounts, managing products and categories, shopping cart, applying coupon codes, and placing orders.",
+    link: "https://github.com/Ciromontes/E-commerceSpring-Angular",
+    github: "https://github.com/Ciromontes/E-commerceSpring-Angular",
+    video: "/ecom.mp4",
+    tags: [TAGS.JAVA, TAGS.ANGULAR],
+  }
+]
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, video, title, description, tags, link, github }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            {video ? (
+              <video loop muted playsinline class="project-video object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105">
+                <source src={video} type="video/mp4" />
+                Tu navegador no soporta el elemento de video.
+              </video>
+            ) : (
+              <img alt={title} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+            )}
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-row mb-2 gap-x-2">
+              {tags.map((tag) => (
+                <li>
+                  <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 border border-white/10`}>
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-2 text-gray-700 dark:text-gray-400 text-pretty">
+              {description}
+            </div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <a href={github} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-3 py-2 text-sm font-medium text-white transition bg-gray-800 border border-gray-700 rounded-lg hover:bg-gray-700 hover:border-gray-600">
+                  <Github class="size-4" />
+                  Code
+                </a>
+              )}
+              {link && (
+                <a href={link} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-3 py-2 text-sm font-medium text-white transition bg-gray-800 border border-gray-700 rounded-lg hover:bg-gray-700 hover:border-gray-600">
+                  <ExternalLink class="size-4" />
+                  Preview
+                </a>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>
+
+<script>
+  const videos = document.querySelectorAll<HTMLVideoElement>('video.project-video')
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target as HTMLVideoElement
+        if (entry.isIntersecting) {
+          video.play()
+        } else {
+          video.pause()
+        }
+      })
+    },
+    { threshold: 0.3 }
+  )
+
+  videos.forEach((video) => observer.observe(video))
+</script>
